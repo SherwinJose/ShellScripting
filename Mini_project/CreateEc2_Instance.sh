@@ -14,5 +14,7 @@ if [ -z "${AMI_ID}" ]; then
   echo -e "Unable to find Image AMI_ID"
   exit
   else
-    echo -e "\e[1;32mAMI ID = ${AMI_ID}\e[0m"
+    echo -e "AMI ID = ${AMI_ID}"
   fi
+
+aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text
