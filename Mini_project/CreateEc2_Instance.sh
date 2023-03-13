@@ -27,6 +27,7 @@ i
   echo -e "\e[1m Instance Created\e[0m"
 else
   echo "Instance ${INSTANCE_NAME} is already exists, Hence not creating"
+  exit
 fi
 
 IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
