@@ -40,5 +40,10 @@ echo "Copy ${COMPONENT} Content"
 SYSTEMD_SETUP() {
   chown roboshop:roboshop /home/roboshop/ -R &>>$LOG_FILE
 
+echo "Update SystemD File"
+
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/g' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/g'
+
+
 
 }
