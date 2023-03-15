@@ -12,15 +12,23 @@ STAT() {
 
 APPUSER_SETUP_WITH_APP()
 {
-  echo "Create App User"
-
-  id roboshop &>>LOG_FILE
+echo "Create App User"
+id roboshop &>>LOG_FILE
   if [ $? -ne 0 ];then
     adduser roboshop $>>LOG_FILE
   fi
-  STAT $?
+STAT $?
 
-  echo "Download ${COMPONENT} Code"
+echo "Download ${COMPONENT} Code"
     curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG_FILE
-    STAT $?
+STAT $?
+
+echo "Extract ${COMPONENT} Code"
+    cd /tmp/
+    unzip -o ${COMPONENT}.zip &>>$LOG_FILE
+STAT $?
+
+echo "Clean Old ${COMPONENT} Content"
+  rm -rf /home/roboshop/${COMPONENT}
+STAT $?
 }
