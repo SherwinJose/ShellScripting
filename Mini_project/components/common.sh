@@ -10,8 +10,7 @@ STAT() {
   fi
 }
 
-APPUSER_SETUP_WITH_APP()
-{
+APPUSER_SETUP_WITH_APP() {
 echo "Create App User"
 id roboshop &>>LOG_FILE
   if [ $? -ne 0 ];then
@@ -31,4 +30,15 @@ STAT $?
 echo "Clean Old ${COMPONENT} Content"
   rm -rf /home/roboshop/${COMPONENT}
 STAT $?
+
+echo "Copy ${COMPONENT} Content"
+  cp -r ${COMPONENT}-main /home/roboshop/${COMPONENT} &>>$LOG_FILE
+  STAT $?
+}
+
+
+SYSTEMD_SETUP() {
+  chown roboshop:roboshop /home/roboshop/ -R &>>$LOG_FILE
+
+
 }
