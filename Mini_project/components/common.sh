@@ -9,3 +9,14 @@ STAT() {
     exit 2
   fi
 }
+
+APPUSER_SETUP_WITH_APP()
+{
+  echo "Create App User"
+
+  id roboshop &>>LOG_FILE
+  if [ $? -ne 0 ];then
+    adduser roboshop $>>LOG_FILE
+  fi
+  STAT $?
+}
