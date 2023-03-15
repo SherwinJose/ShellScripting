@@ -19,4 +19,8 @@ APPUSER_SETUP_WITH_APP()
     adduser roboshop $>>LOG_FILE
   fi
   STAT $?
+
+  echo "Download ${COMPONENT} Code"
+    curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG_FILE
+    STAT $?
 }
