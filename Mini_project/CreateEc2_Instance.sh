@@ -14,12 +14,14 @@ if [ -z "${AMI_ID}" ]; then
   echo  "Unable to find Image AMI_ID"
   exit
   else
-    echo  "AMI ID = ${AMI_ID}"
+    echo  "AMI = ${AMI_ID}"
   fi
 PRIVATE_IP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
 
 if [ -z "${PRIVATE_IP}" ]; then
   SG_ID=$(aws ec2 describe-security-groups --filter Name=group-name,Values=Devops_practice --query "SecurityGroups[*].GroupId" --output text)
+
+     echo
    if [ -z "${SG_ID}" ]; then
       echo "Security Group allow-all-ports does not exist"
       exit
