@@ -47,4 +47,45 @@ echo "Setup ${COMPONENT} SystemD file"
   mv /home/roboshop/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>>$LOG_FILE
 STAT $?
 
+echo "Start ${COMPONENT} Service"
+  systemctl daemon-relaod  &>>$LOG_FILE
+  systemctl enable ${COMPONENT} &>>$LOG_FILE
+  systemctl restart ${COMPONENT} &>>$LOG_FILE
+STAT $?
+}
+
+NODEJS() {
+  COMPONENT=$1
+  echo "Setup NodeJS repo"
+  curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash - &>>$LOG_FILE
+  STAT $?
+
+  echo "Install NodeJS"
+  yum install nodejs gcc-c++ -y &>>$LOG_FILE
+  STAT $?
+
+  APP_USER_SETUP_WITH_APP
+
+  echo "Install NodeJS Dependencies"
+  cd /home/roboshop/${COMPONENT}
+  npm install &>>$LOG_FILE
+  STAT $?
+}
+
+JAVA() {
+  COMPONENT=$1
+
+  echo "Install Maven"
+  yum install maven -y &>>$LOG_FILE
+  STAT $?
+
+  APP_USER_SETUP_WITH_APP
+
+  echo "Compile ${COMPONENT} Code"
+  cd /home/roboshop/${COMPONENT}
+  mvn clean package &>>$LOG_FILE
+  mv target/shipping-1.0.jar shipping.jar &>>$LOG_FILE
+  STAT $?
+
+  SYSTEMD_SETUP
 }
