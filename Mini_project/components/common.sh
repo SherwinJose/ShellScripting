@@ -39,11 +39,12 @@ echo "Copy ${COMPONENT} Content"
 
 SYSTEMD_SETUP() {
   chown roboshop:roboshop /home/roboshop/ -R &>>$LOG_FILE
-
 echo "Update SystemD File"
+  sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG_FILE
+STAT $?
 
-sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/g' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/g'
-
-
+echo "Setup ${COMPONENT} SystemD file"
+  mv /home/roboshop/${COMPONENT}/systemd.service  /etc/systemd/system/${COMPONENT}.service &>>$LOG_FILE
+STAT $?
 
 }
