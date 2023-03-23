@@ -10,6 +10,8 @@ if [ "$1" == "list" ]; then #if the first arguments is givens as list
 fi
 
 INSTANCE_NAME=$1
+
+
 if [ -z "${INSTANCE_NAME}" ]; then                                                                                                 ##if instance name is passed as a arguments or not validation
   echo -e "Instance Name Argument is needed"
   exit
