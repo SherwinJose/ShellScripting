@@ -1,7 +1,7 @@
 - name: Variable declaration in playbook
   host: all
   vars:
-       URL: com.exmaple.com
+       URL: com.example.com
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
