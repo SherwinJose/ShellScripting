@@ -1,5 +1,5 @@
 - name: Variable declaration in playbook
-  host: all
+  hosts: all
   vars:
        URL: com.example.com
   tasks:
