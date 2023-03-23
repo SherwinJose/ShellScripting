@@ -1,12 +1,11 @@
-- name: Variable declaration in playbook
+- name: Variable on Play level
   hosts: all
   vars:
-       URL: com.example.com
+    URL: play.example.com
   tasks:
-    - name: Printing URL
+    - name: Print URL
       ansible.builtin.debug:
-      msg: URL = {{URL}}
-
+        msg: URL = {{URL}}
 # Note: If we declare a varibale in PLAY level then all the tasks can access that variable.
 
 
