@@ -23,6 +23,6 @@
     enabled: yes
 
 - name: DownLoad mongoDB files
-  ansible.builtin.import_roles:
+  import_role:
     name: common
     tasks_from: download
