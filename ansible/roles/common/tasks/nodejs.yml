@@ -47,7 +47,7 @@
 #Perofrming npmrebult command with the help of ansible module
 
 - name: Setup cart SystemD Config File
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/cart.service
 #coping the systemd.service  from template folder to systemd folder
