@@ -11,7 +11,7 @@
 - name: variable printing from a File
   hosts: all
   vars_files:
-    -sample_vars.yml
+    - sample_vars.yml
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
