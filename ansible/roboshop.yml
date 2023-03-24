@@ -6,4 +6,12 @@
   roles:
     - frontend
 
+- name: Setup cart Component
+  hosts: CART
+  become: yes
+  tags:
+    - cart
+  roles:
+    - cart
+
 
