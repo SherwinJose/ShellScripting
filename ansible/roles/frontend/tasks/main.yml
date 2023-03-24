@@ -1,0 +1,4 @@
+- name: Installing Nginx Services
+  ansible.builtin.yum:
+    name: nginx
+    state: latest
