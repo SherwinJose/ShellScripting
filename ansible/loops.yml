@@ -3,11 +3,20 @@
   tasks:
     - name: Print demo list
       debug:
-      msg: hello, {{item}}
+        msg: hello, {{item}}
       loop:
           - Zubin
           - Sherwin
 
+- name: print name of student
+  hosts: localhost
+  tasks:
+    - name: Print demo list
+      debug:
+        msg: hello {{item.name}} , welcome to {{item.course}}
+      loop:
+        - {{name: sherwin, course: devops}}
+        - {{name: zubin, course: aws}}
 
 
 
