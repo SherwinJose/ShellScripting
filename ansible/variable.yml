@@ -23,10 +23,12 @@
   tasks:
     - name: print url
       ansible.builtin.debug:
+      vars:
         URL: www.sherwin.com
         msg: URL == {{URL}}
 
     - name: print url
       ansible.builtin.debug:
+      vars:
         URL: www.zubin.com
         msg: URL == {{URL}}
