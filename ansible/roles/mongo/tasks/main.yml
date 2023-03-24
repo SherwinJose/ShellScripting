@@ -1,0 +1,9 @@
+- name: Coping Mongo.Repo file
+  ansible.builtin.copy:
+    scr: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: intalling MongoDB
+  ansible.builtin.yum:
+    name: mongo-db.org
+    state: installed
