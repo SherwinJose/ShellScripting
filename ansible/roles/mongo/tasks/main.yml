@@ -21,3 +21,8 @@
     name: mongod
     state: restarted
     enabled: yes
+
+- name: DownLoad mongoDB files
+  ansible.builtin.import_roles:
+    name: common
+    tasks_from: download
