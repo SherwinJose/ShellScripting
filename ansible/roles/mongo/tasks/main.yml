@@ -16,11 +16,12 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Starting MongoDb services
-  ansible.builtin.yum:
+- name: Start MongoDB Service
+  ansible.builtin.systemd:
     name: mongod
     state: restarted
     enabled: yes
+
 
 - name: DownLoad mongoDB files
   import_role:
