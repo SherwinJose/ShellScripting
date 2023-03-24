@@ -18,7 +18,7 @@
     state: present
 ## User creating using the ansible module
 
-- name: Download {{COMPONENT}} from Git repo and Extract it
+- name: Download node from Git repo and Extract it
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/cart/archive/main.zip
     dest: /tmp
@@ -40,19 +40,19 @@
 ##Coping app code from /tmp to /home/roboshop using ansible module
 
 
-- name: Install {{COMPONENT}} Dependencies
+- name: Install cart Dependencies
   community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/cart
   become_user: roboshop
 #Perofrming npmrebult command with the help of ansible module
 
-- name: Setup {{COMPONENT}} SystemD Config File
+- name: Setup cart SystemD Config File
   ansible.builtin.template:
     src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: /etc/systemd/system/cart.service
 #coping the systemd.service  from template folder to systemd folder
 
-- name: Starting {{COMPONENT}} services
+- name: Starting cart services
   ansible.builtin.systemd:
     name: frontend
     state: restarted
