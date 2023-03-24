@@ -24,9 +24,9 @@
     - name: print url
       ansible.builtin.debug:
         URL: www.sherwin.com
-        msg: URL = {{URL}}
+        msg: URL == {{URL}}
 
     - name: print url
       ansible.builtin.debug:
         URL: www.zubin.com
-        msg: URL = {{URL}}
+        msg: URL == {{URL}}
