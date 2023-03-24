@@ -3,7 +3,7 @@
   tasks:
     - name: Print demo list
       debug:
-        msg: hello, {{item}}
+      msg: hello, {{item}}
       loop:
           - Zubin
           - Sherwin
