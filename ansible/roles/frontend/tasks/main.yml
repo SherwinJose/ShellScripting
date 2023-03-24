@@ -2,3 +2,17 @@
   ansible.builtin.yum:
     name: nginx
     state: latest
+
+- name: Download Frontfiles freom GIT repo
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_scr: yes
+
+- name: Remove Previous contest from the file
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+
+
