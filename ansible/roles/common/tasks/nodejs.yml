@@ -18,10 +18,11 @@
     state: present
 ## User creating using the ansible module
 
-- name: Download app code
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: download
+- name: Download {{COMPONENT}} from Git repo and Extract it
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/cart/archive/main.zip
+    dest: /tmp
+    remote_src: yes
 ## Where we are inporting the task from downloads
 
 - name: Clean old app code
