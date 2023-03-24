@@ -24,11 +24,11 @@
     - name: print url
       ansible.builtin.debug:
       vars:
-        URL: www.sherwin.com
+        URL: Small_Boy
         msg: URL == {{URL}}
 
     - name: print url
       ansible.builtin.debug:
       vars:
-        URL: www.zubin.com
+        URL: Big_Boy
         msg: URL == {{URL}}
