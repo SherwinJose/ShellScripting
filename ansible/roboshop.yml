@@ -10,7 +10,7 @@
   hosts: MONGODB
   become: yes
   tags:
-    - mongo
+    - mongodb
   roles:
     - mongo
 
