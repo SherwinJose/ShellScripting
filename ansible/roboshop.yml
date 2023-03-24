@@ -22,4 +22,13 @@
   roles:
     - cart
 
+- name: Setup user Component
+  hosts: USER
+  become: yes
+  tags:
+    - user
+  roles:
+    - user
+
+
 
