@@ -6,6 +6,14 @@
   roles:
     - frontend
 
+- name: Setup MongoDBComponent
+  hosts: MONGO
+  become: yes
+  tags:
+    - mongo
+  roles:
+    - mongo
+
 - name: Setup cart Component
   hosts: CART
   become: yes
