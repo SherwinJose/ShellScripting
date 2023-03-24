@@ -20,21 +20,21 @@
 
 - name: Download node from Git repo and Extract it
   ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/cart/archive/main.zip
+    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
     dest: /tmp
     remote_src: yes
 ## Where we are inporting the task from downloads
 
 - name: Clean old app code
   ansible.builtin.file:
-    path: /home/roboshop/cart
+    path: /home/roboshop/{{COMPONENT}}
     state: absent
 ##Deleteing the old files from the path
 
 - name: Copy App code
   ansible.builtin.copy:
-    src: /tmp/cart-main/
-    dest: /home/roboshop/cart/
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
   become_user: roboshop
 ##Coping app code from /tmp to /home/roboshop using ansible module
@@ -42,19 +42,21 @@
 
 - name: Install cart Dependencies
   community.general.npm:
-    path: /home/roboshop/cart
+    path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 #Perofrming npmrebult command with the help of ansible module
 
-- name: Setup cart SystemD Config File
+- name: Setup {{COMPONENT}} SystemD Config File
   ansible.builtin.copy:
     src: /tmp/cart-main/systemd.service
-    dest: /etc/systemd/system/cart.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+    remote_src: yes
+
 #coping the systemd.service  from template folder to systemd folder
 
-- name: Starting cart services
+- name: Starting {{COMPONENT}} services
   ansible.builtin.systemd:
-    name: frontend
+    name: {{COMPONENT}}
     state: restarted
     enable: yes
     daemon_reload: yes
