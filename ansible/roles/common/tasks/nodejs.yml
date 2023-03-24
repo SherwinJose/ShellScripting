@@ -50,6 +50,7 @@
   ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/cart.service
+    remote_src: yes
 #coping the systemd.service  from template folder to systemd folder
 
 - name: Starting cart services
