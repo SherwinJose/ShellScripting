@@ -54,10 +54,11 @@
 
 #coping the systemd.service  from template folder to systemd folder
 
-- name: Starting {{COMPONENT}} services
+- name: Start {{COMPONENT}} service
   ansible.builtin.systemd:
-    name: {{COMPONENT}}
+    name: "{{COMPONENT}}"
     state: restarted
-    enable: yes
+    enabled: yes
     daemon_reload: yes
+
 ##Restarting the services
