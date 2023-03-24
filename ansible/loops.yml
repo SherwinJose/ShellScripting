@@ -1,5 +1,5 @@
 - name: print name of student
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Print demo list
       debug:
