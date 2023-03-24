@@ -23,12 +23,12 @@
   tasks:
     - name: print url
       ansible.builtin.debug:
-      msg: URL == {{URL}}
+      msg: URL = {{URL}}
       vars:
         URL: Small_Boy
 
     - name: print url
       ansible.builtin.debug:
-      msg: URL == {{URL}}
+      msg: URL = {{URL}}
       vars:
         URL: Big_Boy
