@@ -27,14 +27,14 @@
 
 - name: Clean old app code
   ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/cart
     state: absent
 ##Deleteing the old files from the path
 
 - name: Copy App code
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
+    dest: /home/roboshop/cart/
     remote_src: yes
   become_user: roboshop
 ##Coping app code from /tmp to /home/roboshop using ansible module
