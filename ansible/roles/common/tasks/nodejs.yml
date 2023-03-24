@@ -48,9 +48,8 @@
 
 - name: Setup cart SystemD Config File
   ansible.builtin.copy:
-    src: systemd.service
+    src: /tmp/cart-main/systemd.service
     dest: /etc/systemd/system/cart.service
-    remote_src: yes
 #coping the systemd.service  from template folder to systemd folder
 
 - name: Starting cart services
