@@ -1,0 +1,16 @@
+- name: print name of student
+  hosts: all
+  tasks:
+    - name : Print demo list
+    ansible.builtin.debug:
+        msg: hello, {{item}}
+        loop:
+          - Zubin
+          - Sherwin
+
+    - name : Print demo with list
+    ansible.builtin:debug:
+      msg: Hello, {{item.name}}, Welcome to {{item.Course}} Training
+      loop:
+        - {name: raghu, Course: devops}
+        - {name: racvi, Course: aws}
