@@ -10,7 +10,7 @@
 
 - name: variable printing from a File
   hosts: all
-  vars_file:
+  vars_files:
     -sample.vars.yml
   tasks:
     - name: Printing URL
