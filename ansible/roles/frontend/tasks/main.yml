@@ -8,7 +8,10 @@
     dest: /tmp
     remote_src: yes
 
-
+- name: Remove previous content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
 
 
 
