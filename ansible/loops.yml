@@ -15,8 +15,8 @@
       debug:
         msg: hello {{item.name}} , welcome to {{item.course}}
       loop:
-        - {{name: sherwin, course: devops}}
-        - {{name: zubin, course: aws}}
+        - {name: sherwin, course: devops}
+        - {name: zubin, course: aws}
 
 
 
