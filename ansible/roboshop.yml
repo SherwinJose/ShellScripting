@@ -7,7 +7,7 @@
     - frontend
 
 - name: Setup MongoDBComponent
-  hosts: MONGO
+  hosts: MONGODB
   become: yes
   tags:
     - mongo
