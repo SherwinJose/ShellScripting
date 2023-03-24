@@ -1,6 +1,6 @@
-- name: Coping Mongo.Repo file
+- name: Copy MongoDb Repo
   ansible.builtin.copy:
-    scr: mongo.repo
+    src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
 - name: intalling MongoDB
