@@ -4,7 +4,7 @@
     - name: Print demo list
       debug:
         msg: hello, {{item}}
-        loop:
+      loop:
           - Zubin
           - Sherwin
 
