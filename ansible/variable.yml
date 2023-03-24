@@ -18,3 +18,15 @@
         msg: URL = {{URL}}
 # We can load all the variables from a file, Since it is on play level, all the tasks can access those variables
 
+- name: variable declearing in task level
+  host: all
+  tasks:
+    - name: print url
+      ansible.builtin.debug:
+        URL: www.sherwin.com
+        msg: URL = {{URL}}
+
+    - name: print url
+      ansible.builtin.debug:
+        URL: www.zubin.com
+        msg: URL = {{URL}}
