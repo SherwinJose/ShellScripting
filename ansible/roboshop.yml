@@ -1,0 +1,23 @@
+- name: Setup Frontend Component
+  hosts: FRONTEND
+  become: yes
+  tags:
+    - frontend
+  roles:
+    - frontend
+
+- name: Setup Mongodb Component
+  hosts: MONGODB
+  become: yes
+  tags:
+    - mongodb
+  roles:
+    - mongodb
+
+- name: Setup Cart Component
+  hosts: CART
+  become: yes
+  tags:
+    - cart
+  roles:
+    cart
