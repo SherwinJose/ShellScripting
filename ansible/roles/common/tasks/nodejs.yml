@@ -40,7 +40,7 @@
 ##Coping app code from /tmp to /home/roboshop using ansible module
 
 
-- name: Install cart Dependencies
+- name: Install {{COMPONENT}} Dependencies
   community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
