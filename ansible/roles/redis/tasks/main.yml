@@ -1,0 +1,12 @@
+- name: SetingUp Redis Repo
+  ansible.builtin.copy:
+  scr: redis.repo
+  dest: /etc/yum.repos.d/redis.repo
+
+- name: installing Redis
+  ansible.builtin.yum:
+    name: redis
+    state: installed
+
+
+
