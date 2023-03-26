@@ -39,7 +39,6 @@
       ansible.builtin.template:
         src: password_reset.sql
         dest: /tmp/pass.sql
-        remote_src: yes
 
     - name: change password for MySQL
       ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{mysql_output.stdout}}" </tmp/pass.sql
