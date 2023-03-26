@@ -19,3 +19,11 @@
     - /etc/redis/redis.conf
 
 
+- name: restarting redis file
+  ansible.builtin.systemd:
+    name: redis
+    state: restarted
+    enabled: yes
+
+
+
