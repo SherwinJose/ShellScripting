@@ -1,4 +1,4 @@
-- name: Seting Up User services
+- name: Setting Up User services
   ansible.builtin.import_role:
     name: common
     tasks_from: nodejs

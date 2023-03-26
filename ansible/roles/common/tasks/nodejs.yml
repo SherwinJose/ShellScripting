@@ -48,7 +48,7 @@
 
 - name: Setup {{COMPONENT}} SystemD Config File
   ansible.builtin.copy:
-    src: /tmp/cart-main/systemd.service
+    src: /tmp/{{COMPONENT}}-main/systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
     remote_src: yes
 
