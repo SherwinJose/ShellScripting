@@ -31,17 +31,17 @@
       ansible.builtin.shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
       register: mysql_output
 
-- name: Print
-  ansible.builtin.debug:
-    msg: "{{mysql_output}}"
+    - name: Print
+      ansible.builtin.debug:
+        msg: "{{mysql_output}}"
 
-- name: Copy the password
-  ansible.builtin.copy:
-    scr: password_reset.sql
-    dest: /tmp/pass.sql
+    - name: Copy the password
+      ansible.builtin.copy:
+        scr: password_reset.sql
+        dest: /tmp/pass.sql
 
-- name: change password for MySQL
-  ansible:builtin.shell: mysql --connect-expired-password -uroot -p"{{mysql_output.stdout}}" </tmp/pass.sql
+    - name: change password for MySQL
+      ansible:builtin.shell: mysql --connect-expired-password -uroot -p"{{mysql_output.stdout}}" </tmp/pass.sql
 
 
 
