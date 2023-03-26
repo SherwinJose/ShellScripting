@@ -30,5 +30,13 @@
   roles:
     - user
 
+- name: Setup catalogue Component
+  hosts: CATALOGUE
+  become: yes
+  tags:
+    - catalogue
+  roles:
+    - catalogue
+
 
 
