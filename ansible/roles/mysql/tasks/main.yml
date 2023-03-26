@@ -37,7 +37,7 @@
 
     - name: Copy the password
       ansible.builtin.copy:
-        scr: password_reset.sql
+        src: password_reset.sql
         dest: /tmp/pass.sql
 
     - name: change password for MySQL
