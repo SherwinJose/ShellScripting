@@ -41,7 +41,7 @@
         dest: /tmp/pass.sql
 
     - name: change password for MySQL
-      ansible:builtin.shell: mysql --connect-expired-password -uroot -p"{{mysql_output.stdout}}" </tmp/pass.sql
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{mysql_output.stdout}}" </tmp/pass.sql
 
 
 
