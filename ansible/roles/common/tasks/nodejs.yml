@@ -47,9 +47,9 @@
 #Perofrming npmrebult command with the help of ansible module
 
 
-- name: Setup {{COMPONENT}} Systemd file
+- name: Setup {{COMPONENT}} SystemD Config File
   ansible.builtin.template:
-    scr: systemd.service
+    src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
  #coping the systemd.service  from template folder to systemd folder
