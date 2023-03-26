@@ -49,7 +49,7 @@
 
 - name: Setup {{COMPONENT}} Systemd file
   ansible.builtin.template:
-    scr: systemd.services
+    scr: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
  #coping the systemd.service  from template folder to systemd folder
