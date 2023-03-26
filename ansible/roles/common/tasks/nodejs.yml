@@ -46,13 +46,13 @@
   become_user: roboshop
 #Perofrming npmrebult command with the help of ansible module
 
-- name: Setup {{COMPONENT}} SystemD Config File
-  ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-    remote_src: yes
 
-#coping the systemd.service  from template folder to systemd folder
+- name: Setup {{COMPONENT}} Systemd file
+  ansible.builtin.template:
+    scr: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+ #coping the systemd.service  from template folder to systemd folder
 
 - name: Start {{COMPONENT}} service
   ansible.builtin.systemd:
@@ -62,3 +62,4 @@
     daemon_reload: yes
 
 ##Restarting the services
+
