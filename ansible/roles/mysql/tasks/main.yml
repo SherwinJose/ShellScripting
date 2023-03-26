@@ -14,5 +14,14 @@
     state: restarted
     enabled: yes
 
+- name: MySQL password check
+  mysql_info:
+    login_user: root
+    login_password: "{{MYSQL_NEW_PASSWORD}}"
+    filter: databases
+    ignore_errors: yes
+    register: check_pass
+
+
 
 
