@@ -46,4 +46,13 @@
   roles:
     - redis
 
+- name: Setup mysql Component
+  hosts: MYSQL
+  become: yes
+  tags:
+    - mysql
+  roles:
+    - mysql
+
+
 
