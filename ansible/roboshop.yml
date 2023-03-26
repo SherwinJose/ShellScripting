@@ -38,5 +38,12 @@
   roles:
     - catalogue
 
+- name: Setup redis Component
+  hosts: REDIS
+  become: yes
+  tags:
+    - redis
+  roles:
+    - redis
 
 
