@@ -54,5 +54,14 @@
   roles:
     - mysql
 
+- name: Setup Payment Component
+  hosts: PAYMENT
+  become: yes
+  tags:
+    - payment
+  roles:
+    - payment
+
+
 
 
