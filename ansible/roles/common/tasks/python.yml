@@ -11,4 +11,24 @@
     name: common
     tasks_from: download
 
+- name: Install {{COMPONENT}} Dependencies
+  ansible.builtin.pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
+- name: Replace UID and GID in {{COMPONENT}} Configuration
+  lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    search_string: "{{item.search}}"
+    line: "{{item.search}} = {{item.replace}}"
+  loop:
+    - {search: uid, replace: "{{appUser.uid}}"}
+    - {search: gid, replace: "{{appUser.group}}"}
+
+- name: Configure SystemD for {{COMPONENT}}
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd
+
+
 
