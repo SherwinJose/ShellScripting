@@ -5,3 +5,10 @@
       - gcc
       - python3-devel
     state: installed
+
+- name: Import App user and app code
+  ansible.builtin.import:
+    name: common
+    tasks_from: download
+
+
