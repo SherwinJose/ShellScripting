@@ -4,7 +4,7 @@
     state: installed
 
 - name: Setup Appuser and Application
-  import_roles:
+  import_role:
     name: common
     taskS_from: download
 
@@ -15,7 +15,7 @@
     become_user: roboshop
 
 - name: Configure Systemd for {{COMPONENT}}
-  import_roles:
+  import_role:
     name: common
     taskS_from: systemd
 
