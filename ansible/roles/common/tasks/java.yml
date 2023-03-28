@@ -12,7 +12,7 @@
   ansible.builtin.shell: mvn clean package &&  mv target/shipping-1.0.jar shipping.jar
   args:
     chdir: /home/roboshop/{{COMPONENT}}
-  become: roboshop
+  become_user: roboshop
 
 - name:  Configure Systemd.service file
   ansible.builtin.import_role:
