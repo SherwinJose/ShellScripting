@@ -22,7 +22,7 @@
 - name: Copy roboshop.conf file
   ansible.builtin.template:
     src: rodoshop.conf
-    dest:
+    dest: /etc/nginx/default.d/roboshop.conf
 
 
 - name: Start Nginx
