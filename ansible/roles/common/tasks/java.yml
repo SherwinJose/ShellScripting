@@ -4,6 +4,6 @@
     state: installed
 
 - name: Import App user data and app data
-  ansible.builtin.import_roles:
+  ansible.builtin.import_role:
     name: common
     tasks_from: download
