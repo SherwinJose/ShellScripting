@@ -12,7 +12,7 @@
   ansible.builtin.shell: go mod init {{COMPONENT}} && go get && go build
   args:
     chdir: /home/roboshop/{{COMPONENT}}
-    become_user: roboshop
+  become_user: roboshop
 
 - name: Configure Systemd for {{COMPONENT}}
   import_role:
