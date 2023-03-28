@@ -15,6 +15,6 @@
   become: roboshop
 
 - name:  Configure Systemd.service file
-  ansible.builtin.import:
+  ansible.builtin.import_role:
     name: common
     tasks_from: download
