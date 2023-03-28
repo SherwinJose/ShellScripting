@@ -7,3 +7,14 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: download
+
+- name: install {{COMPONENT}} Dependencies
+  ansible.builtin.shell: mvn clean package &&  mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+  become: roboshop
+
+- name:  Configure Systemd.service file
+  ansible.builtin.import:
+    name: common
+    tasks_from: download
