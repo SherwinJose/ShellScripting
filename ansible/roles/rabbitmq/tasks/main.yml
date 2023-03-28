@@ -12,11 +12,19 @@
 - name: Starting RabbitMq Services
   ansible.builtin.systemd:
     name: rabbitmq
-    state: restarted
+    state: Started
     enabled: yes
 
 
-
+- name: Setup RoboShop Application User in RabbitMQ
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
 
 
 
