@@ -1,0 +1,8 @@
+- name: setup YUM repo for RabbitMq
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
+
+
+
+
+
+
