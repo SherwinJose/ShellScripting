@@ -19,11 +19,18 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+- name: Copy roboshop.conf file
+  ansible.builtin.template:
+    src: rodoshop.conf
+    dest:
+
+
 - name: Start Nginx
   ansible.builtin.systemd:
     name: nginx
     state: restarted
     enabled: yes
+
 
 
 
