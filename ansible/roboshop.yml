@@ -62,6 +62,14 @@
   roles:
     - payment
 
+- name: Setup RabbitMq Component
+  hosts: RABBITMQ
+  become: yes
+  tags:
+    - rabbitmq
+  roles:
+    - rabbitmq
+
 
 
 
