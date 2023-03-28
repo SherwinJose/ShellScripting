@@ -78,6 +78,14 @@
   roles:
     - shipping
 
+- name: Setup Dispatch Component
+  hosts: DISPATCH
+  become: yes
+  tags:
+    - dispatch
+  roles:
+    - dispatch
+
 
 
 
