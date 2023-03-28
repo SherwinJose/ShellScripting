@@ -1,12 +1,12 @@
 [Unit]
-Description=Shipping Service
-
+Description = Dispatch Service
 [Service]
 User=roboshop
-Environment=CART_ENDPOINT=cart.roboshop.internal:8080
-Environment=DB_HOST=mysql.roboshop.internal
-ExecStart=/bin/java -jar /home/roboshop/shipping/shipping.jar
-SyslogIdentifier=shipping
+Environment=AMQP_HOST=rabbitmq.roboshop.internal
+Environment=AMQP_USER=roboshop
+Environment=AMQP_PASS=roboshop123
+ExecStart=/home/roboshop/dispatch/dispatch
+SyslogIdentifier=dispatch
 
 [Install]
 WantedBy=multi-user.target
