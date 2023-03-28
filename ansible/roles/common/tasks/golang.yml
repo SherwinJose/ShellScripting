@@ -1,0 +1,21 @@
+- name: Install GoLang
+  yum:
+    name: golang
+    state: installed
+
+- name: Setup Appuser and Application
+  import_roles:
+    name: common
+    taskS_from: download
+
+- name: Install Ansible Dependences
+  shell: go mod init {{COMPONENT}} && go get && go build
+  arg:
+    chdir: /home/roboshop/{{COMPONENT}}
+    become_user: roboshop
+
+- name: Configure Systemd for {{COMPONENT}}
+  import_roles:
+    name: common
+    taskS_from: systemd
+
