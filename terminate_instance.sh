@@ -9,9 +9,13 @@ INSTANCE_NAME=$1
 
   INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].InstanceId' --output text)
 
-echo "InstanceID =  ${INSTANCE_ID} "
+echo "InstanceID =  ${INSTANCE_ID}"
 
-
+if [ ${INSTANCE_ID} -ne 0 ];then
+ aws ec2 terminate-instances --instance-ids ${INSTANCE_ID}
+else
+echo "The Instance is not present"
+fi
 
 
 
