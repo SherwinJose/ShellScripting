@@ -6,9 +6,7 @@ INSTANCE_NAME=$1
     echo -e "\e[1;INSTANCE_NAME Argument is needed\e[0m"
     exit
   fi
-
-  INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].InstanceId' --output text)
-
+INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].InstanceId' --output text)
 echo "InstanceID =  ${INSTANCE_ID}"
 
 if [ -z "${INSTANCE_NAME}" ];then
