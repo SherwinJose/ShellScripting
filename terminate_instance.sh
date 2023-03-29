@@ -16,7 +16,8 @@ then
   else
     #terminate ec2 instance
     INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].Instanceid' --output text)
-
+    echo -e the "\e[1;33m ${INSTANCE_ID}  is the instance id for the ${INSTANCE_NAME}"
     #aws ec2 terminate_inatances --intance-ids $
+
 
     fi
