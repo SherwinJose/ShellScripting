@@ -25,7 +25,7 @@ INSTANCE_CREATE() {
     # Find Security Group
     SG_ID=$(aws ec2 describe-security-groups --filter Name=group-name,Values=Devops_practice --query "SecurityGroups[*].GroupId" --output text)
     if [ -z "${SG_ID}" ]; then
-      echo -e "\e[1;33m Security Group allow-all-ports does not exist"
+      echo -e "\e[1;33m Security Group Devops_practice does not exist"
       exit
     fi
     # Creating Instance
