@@ -7,9 +7,9 @@ INSTANCE_NAME=$1
     exit
   fi
 
-  PRIVATE_IP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
+  INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].InstanceId' --output text)
 
-echo "InstanceID =  ${PRIVATE_IP} "
+echo "InstanceID =  ${INSTANCE_ID} "
 
 
 
