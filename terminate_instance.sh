@@ -1,19 +1,32 @@
 LOG=/tmp/terminate_instance.log
 rm -f $LOG
 
-INSTANCE_NAME=$1
+PRIVATE_IP=$1
   if [ -z "${INSTANCE_NAME}" ]; then
     echo -e "\e[1;33mInstance Name Argument is needed\e[0m"
     exit
   fi
 
+INSTANCE_ID=$(aws ec2 describe-instances --filter Name=private-ip-address,Value=$PRIVATE_IP --'Reservations[*].Instances[*].InstanceID' --output text )
 
-PRIVATE_IP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
+echo "InstanceID =  ${INSTANCE_ID} "
 
-if [ -z "${PRIVATE_IP}" ];
-then
-  echo -e "\e[1;33mThe Given Instance is not active\e[0m"
-  else
-    #terminate ec2 instance
-    aws ec2 terminate-instances --name ${INSTANCE_NAME}
- fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
