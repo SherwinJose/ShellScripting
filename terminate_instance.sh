@@ -15,7 +15,7 @@ then
   echo -e "\e[1;33mThe Given Instance is not active\e[0m"
   else
     #terminate ec2 instance
-    INSTANCE_ID=$(aws ec2 descride-instance --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].Instanceid' --output text)
+    INSTANCE_ID=$(aws ec2 descride-instances --filters "Name=tag:Name,Values=${INSTANCE_NAME}" --query 'Reservations[*].Instances[*].Instanceid' --output text)
 
     #aws ec2 terminate_inatances --intance-ids $
 
