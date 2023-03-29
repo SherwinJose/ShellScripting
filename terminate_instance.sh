@@ -11,10 +11,10 @@ INSTANCE_NAME=$1
 
 echo "InstanceID =  ${INSTANCE_ID}"
 
-if [ ${INSTANCE_ID} -ne 0 ];then
- aws ec2 terminate-instances --instance-ids ${INSTANCE_ID}
+if [ -z "${INSTANCE_NAME}" ];then
+echo "The The Instance is not present"
 else
-echo "The Instance is not present"
+ aws ec2 terminate-instances --instance-ids "${INSTANCE_ID}"
 fi
 
 
