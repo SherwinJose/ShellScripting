@@ -1,11 +1,11 @@
 - name: Handlers
   hosts: localhost
   tasks:
-    name: Run uptime
+  - name: Run uptime
     shell: uptime
 
 
-- handlers:
+  handlers:
     - name: print
       debug:
       msg: print message from handlers
