@@ -1,0 +1,5 @@
+- name: Setting up "{{COMPONENT}}" COMPONENT
+  hosts: localhost
+  become: yes
+  role:
+    - "{{COMPONENT}}"
