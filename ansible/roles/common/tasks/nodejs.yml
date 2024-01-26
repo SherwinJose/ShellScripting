@@ -1,4 +1,4 @@
-- name: Setup Repo file for NodeJS
+ - name: Setup Repo file for NodeJS
   ansible.builtin.copy:
     src: nodejs.repo
     dest: /etc/yum.repos.d/nodejs.repo

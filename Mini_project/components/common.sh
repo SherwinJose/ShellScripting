@@ -10,11 +10,15 @@ STAT() {
   fi
 }
 
+
 APPUSER_SETUP_WITH_APP() {
 echo "Create App User"
-id roboshop &>>LOG_FILE
+id robo
+shop &>>LOG_FILE
   if [ $? -ne 0 ];then
-    adduser roboshop $>>LOG_FILE
+    adduser robo
+
+    shop $>>LOG_FILE
   fi
 STAT $?
 
@@ -38,6 +42,8 @@ echo "Copy ${COMPONENT} Content"
 
 
 SYSTEMD_SETUP() {
+
+
   chown roboshop:roboshop /home/roboshop/ -R &>>$LOG_FILE
 echo "Update SystemD File"
   sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/${COMPONENT}/systemd.service &>>$LOG_FILE
@@ -89,3 +95,4 @@ JAVA() {
 
   SYSTEMD_SETUP
 }
+
